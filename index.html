@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- vue -->
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <title>Vue To Do List</title>
+  </head>
+  <body>
+    <div id="app">
+      <input id="input" v-model="newElement" type="text" value="">
+      <button v-on:click="addElement" type="button" name="button">Aggiungi</button>
+      <h1>{{ message }}</h1>
+      <ul>
+        <li v-for="element in toDoList">{{ element }} <span>X</span></li>
+      </ul>
+    </div>
+
+
+  <script src="js/script.js" charset="utf-8"></script>
+  </body>
+</html>
