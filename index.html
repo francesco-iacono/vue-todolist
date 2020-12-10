@@ -2,21 +2,29 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.css" integrity="sha512-f73UKwzP1Oia45eqHpHwzJtFLpvULbhVpEJfaWczo/ZCV5NWSnK4vLDnjTaMps28ocZ05RbI83k2RlQH92zy7A==" crossorigin="anonymous" />
+    <!-- foglio stile -->
+    <link rel="stylesheet" href="css/style.css">
     <!-- vue -->
       <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <title>Vue To Do List</title>
   </head>
   <body>
     <div id="app">
-      <input id="input" v-model="newElement" type="text" value="">
-      <button v-on:click="addElement" type="button" name="button">Aggiungi</button>
       <h1>{{ message }}</h1>
+      <form class="newElement" action="index.html" method="post">
+        <input id="input" v-model="newElement" type="text" value="" placeholder="Inserisci cosa fare" v-on:keypress.enter="addElement">
+        <i v-on:click="addElement" class="fas fa-plus-square"></i>
+        <!-- <button  type="button" name="button">+</button> -->
+      </form>
       <ul>
-        <li v-for="element in toDoList">{{ element }} <span>X</span></li>
+        <li v-for="(element, index) in toDoList"><div class="element">{{ element }}</div> <span v-on:click="deleteElement(index)" class="delete"><i class="fas fa-trash-alt"></i></span></li>
       </ul>
     </div>
-
-
   <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>

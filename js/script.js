@@ -9,12 +9,22 @@ var app = new Vue(
   data: {
     message: 'Cose da fare',
     toDoList: ['Fare i turni di lavoro', 'Comprare il vino', 'Fare il nuovo menu'],
-    newElement: ''
+    newElement: '',
+    indexElement: ''
   },
     methods: {
       addElement() {
-        this.toDoList.push(this.newElement);
+        if (this.newElement != '') {
+          this.toDoList.push(this.newElement);
+        } else {
+          alert('Inserisci una cosa da fare')
+        }
+        this.newElement = '';
       },
+      deleteElement: function (index) {
+        this.indexElement = index;
+        this.toDoList.splice(this.indexElement, 1)
+      }
     }
   }
 );
